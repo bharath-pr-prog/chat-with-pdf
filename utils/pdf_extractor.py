@@ -29,3 +29,7 @@ def answer_question(text, question):
     prompt = f"Answer the question based on the PDF content:\n\nPDF Content: {text}\n\nQuestion: {question}"
     response = model.generate_content(prompt)
     return response.text
+
+# Chunking large PDF text for RAG
+def chunk_text(text, chunk_size=500):
+    return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
